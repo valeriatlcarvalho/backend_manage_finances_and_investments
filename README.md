@@ -6,19 +6,19 @@ Gerencie finanças e investimentos pessoais
 
 Se não tiver o `virtualenv` instalado ainda, pode instalá-lo pelo comando:
 
-```shell
+```shellscript
 pip install virtualenv
 ```
 
 Instalar a máquina virtual para o projeto python
 
-```shell
+```shellscript
 virtualenv venv
 ```
 
 Ativar a máquina virtual para o projeto
 
-```shell
+```shellscript
 # On Windows
 .\venv\Scripts\Activate
 
@@ -28,10 +28,16 @@ source venv/bin/activate
 
 Instalar as dependências do projeto
 
-```shell
+```shellscript
 # On Windows
 pip install -r .\requirements.txt
 
 # On Unix
 pip install -r ./requirements.txt
+```
+
+Para rodar o FastAPI, execute o seguinte comando:
+
+```shellscript
+uvicorn main:app --reload
 ```
