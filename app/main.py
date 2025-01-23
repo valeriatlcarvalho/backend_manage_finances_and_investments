@@ -5,17 +5,14 @@ from app.core.config import settings
 
 app = FastAPI(title=settings.PROJECT_NAME, version=settings.VERSION)
 
-print(settings.ALLOWED_ORIGINS)
-print(settings.ALLOWED_ORIGINS.split(","))
-
 # Configurar CORS para permitir o frontend acessar o backend
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=settings.ALLOWED_ORIGINS.split(","),
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.ALLOWED_ORIGINS.split(","),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Registrar rotas
 app.include_router(finance.router, prefix="/api/v1/finance", tags=["Finance"])
